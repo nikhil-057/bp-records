@@ -1,1 +1,1 @@
-python parser.py
+`./run.sh`

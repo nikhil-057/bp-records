@@ -37,7 +37,7 @@ class BloodPressure:
 
 bp_list: list[BloodPressure] = []
 
-with open("data.txt", "r") as f:
+with open("data/input.txt", "r") as f:
     for line in f.readlines():
         reg = r"^(\d+)\/(\d+)\s(\d+)[\:\.](\d+)\s*\-\-\s*(\d+)\/(\d+)\s*(\(h\))?\s*$"
         match = re.search(reg, line)
@@ -65,14 +65,14 @@ with open("data.txt", "r") as f:
 
 # print(len(bp_list))
 
-with open("afternoon.txt", "w") as f:
+with open("data/out_afternoon.txt", "w") as f:
     f.write("AFTERNOON\n")
     for bp in bp_list:
         if not bp.is_evening():
             # f.write(f"{bp} {bp.weight}\n")
             f.write(f"{bp}\n")
 
-with open("evening.txt", "w") as f:
+with open("data/out_evening.txt", "w") as f:
     f.write("EVENING\n")
     for bp in bp_list:
         if bp.is_evening():
